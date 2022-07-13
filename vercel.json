@@ -8,7 +8,7 @@
     },
     {
       "src": "./blogs",
-      "method": ["POST", "GET"],
+      "methods": ["POST", "GET"],
       "dest": "/"
     }
   ]
