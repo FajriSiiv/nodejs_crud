@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="flex flex-col items-center h-[100vh]">
+      <h2 class="text-emerald-800 font-bold text-3xl"><%= blog.title %></h2>
+      <div class="content min-h-[60%] mt-8">
+        <p class="text-slate-900 font-medium text-lg"><%= blog.body %></p>
+      </div>
+      <a
+        class="delete w-28 h-10 bg-rose-700 font-semibold uppercase hover:bg-rose-900 flex items-center justify-center text-slate-50"
+        href=""
+        data-doc="<%= blog._id %> "
+        >delete</a
+      >
+    </div>
+    <%- include('./partials/footer.ejs') %>
+
+    <script>
+      const trashCan = document.querySelector("a.delete");
+      trashCan.addEventListener("click", (e) => {
+        const endPoint = `/blogs/${trashCan.dataset.doc}`;
+
+        fetch(endPoint, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            response
+              .json()
+              .then((data) => (window.location.href = data.redirect));
+          })
+          .catch((err) => console.log(err));
+      });
+    </script>
+  </body>
+</html>

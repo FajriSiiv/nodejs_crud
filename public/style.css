@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  font-family: "Poppins";
+  transition: all 0.5s;
+}
+body {
+  background: rgb(226 232 240);
+}

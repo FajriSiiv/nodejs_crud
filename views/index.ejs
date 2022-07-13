@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="flex flex-col my-5">
+      <h2 class="text-center text-xl uppercase">All Blogs</h2>
+      <div class="flex flex-row px-5 my-5 flex-wrap">
+        <% if(blogs.length > 0) { %> <% blogs.forEach(blog => { %>
+        <a
+          href="/blogs/<%=  blog._id %> "
+          class="border-2 p-2 text-center mx-3 border-emerald-300 hover:bg-slate-900 hover:border-slate-900 w-1/5"
+        >
+          <h3 class="text-indigo-600 font-semibold">
+            Title : <%= blog.title %>
+          </h3>
+          <p class="text-rose-600 font-semibold">Body : <%= blog.snippet %></p>
+        </a>
+        <% }) %> <% } else { %>
+        <div class="flex flex-col justify-between items-center w-full h-48">
+          <p class="text-rose-600 font-bold uppercase text-3xl">Empty Blogs.</p>
+          <a
+            href="/blog/create"
+            class="bg-emerald-400 flex justify-center items-center hover:bg-emerald-500 h-10 w-32 text-slate-50 font-semibold tracking-wider uppercase"
+          >
+            Create
+          </a>
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

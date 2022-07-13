@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="w-full flex justify-center items-center">
+      <form class="flex flex-col w-[50%]" action="/blogs" method="POST">
+        <label for="title" class="text-rose-600 font-semibold">Title :</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="mb-4 border-none h-10 pl-3"
+          required
+        />
+        <label for="snippet" class="text-rose-600 font-semibold"
+          >Snippet :</label
+        >
+        <input
+          type="text"
+          id="snippet"
+          name="snippet"
+          class="mb-4 border-none h-10 pl-3"
+          required
+        />
+        <label for="body" class="text-rose-600 font-semibold">Body :</label>
+        <textarea
+          id="body"
+          name="body"
+          class="mb-4 border-none h-20 pl-3 pt-2"
+          required
+        ></textarea>
+        <button
+          class="bg-green-500 w-28 m-auto text-neutral-100 rounded-md h-8 hover:bg-rose-600"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
