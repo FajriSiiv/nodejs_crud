@@ -8,7 +8,9 @@ require("dotenv").config();
 const app = express();
 
 // connect to MongoDB
-const dbURL = process.env.API_KEY;
+// const dbURL = process.env.API_KEY;
+const dbURL =
+  "mongodb://siiv-mong:test1234567890@nodemong-shard-00-00.2pyye.mongodb.net:27017,nodemong-shard-00-01.2pyye.mongodb.net:27017,nodemong-shard-00-02.2pyye.mongodb.net:27017/node-mong?ssl=true&replicaSet=atlas-fpc8sh-shard-0&authSource=admin&retryWrites=true&w=majority";
 mongoose
   .connect(dbURL)
   .then((res) => {
