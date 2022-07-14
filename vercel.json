@@ -5,11 +5,6 @@
     {
       "src": "/(.*)",
       "dest": "/"
-    },
-    {
-      "src": "./blogs",
-      "methods": ["POST", "GET"],
-      "dest": "/"
     }
   ]
 }
